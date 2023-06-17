@@ -131,8 +131,8 @@ const styles = {
     },
     titleBar : {
         height:'10%',
-        width:'100%',
-        borderRadius:'12px 0 0 0',
+        width:'95%',
+        borderRadius:'10px 0 0 0',
         backgroundColor: '#FFAAC9',
         borderBottom: '1px solid #6c757d',
         padding : '1px 5px 10px 8px',

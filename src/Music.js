@@ -49,9 +49,9 @@ const styles = {
         borderRadius : '0 12px 12px 0'
     },
     titleBar : {
-        height:'15%',
-        width:'100%',
-        borderRadius:'12px 0 0 0',
+        height:'10%',
+        width:'90%',
+        borderRadius:'10px 0 0 0',
         backgroundColor: '#FFAAC9',
         borderBottom: '1px solid #6c757d',
         padding : '1px 5px 10px 8px',
