@@ -7,27 +7,53 @@ class MyMusic extends React.Component{
     constructor(){
         super();
         this.state = {
-            isMounted : true
+            isMounted : true,
+            //index variable to keep track of song currently playing
+            index:0
         }
     }
 
    
     componentDidMount(){
         let self = this;
-        self.props.audio.play();
+        self.props.audio[this.state.index].play();
 
-       
-            self.props.audio.addEventListener("timeupdate",function(){
-                if(self.state.isMounted){
-                    var pos = self.props.audio.currentTime/self.props.audio.duration;
-                    self.updateTime();
-                    let fill = document.getElementById("fill");
-                    console.log(fill);
-                    if(fill !== null){
-                        fill.style.width = pos*100 + "%";
-                    }
+            // on next button for next song -- increase the index of the song in the song list
+            document.getElementById('nextnext').addEventListener('click',(e)=>{
+                if(this.state.index<[self.props.audio].length){
+                    this.setState({
+                        index:this.state.index+1
+                    })
                 }
             })
+
+            // on previous button for previous song -- decrease the index of the song in the song list
+            document.getElementById('prevprev').addEventListener('click',(e)=>{
+                if(this.state.index>0){
+                    this.setState({
+                        index:this.state.index-1
+                    })
+                }
+            })
+
+            // console.log(self.props.audio);
+            var arr = new Array(self.props.audio);
+
+            //add Event Listener to all the audio elements for timeupdate -- adding functionality for multiple songs
+            [...document.querySelectorAll('.audio-element')].forEach(function(aud) {
+                console.log(aud);
+                aud.addEventListener("timeupdate",function(){
+                    if(self.state.isMounted){
+                        var pos = aud.currentTime/aud.duration;
+                        self.updateTime();
+                        let fill = document.getElementById("fill");
+                        console.log(fill);
+                        if(fill !== null){
+                            fill.style.width = pos*100 + "%";
+                        }
+                    }
+                })
+            });
         
     }
 
@@ -44,7 +70,17 @@ class MyMusic extends React.Component{
     }
 
     render(){
-         let audio = this.props.audio;
+         let audio = this.props.audio[this.state.index];
+
+        // at the time of re rendering put active onto that audio which is active
+         [...document.querySelectorAll('.audio-element')].forEach(function(item) {
+            item.classList.remove('active')
+             });
+         audio.classList.add('active');
+
+
+
+
         return(
             <div style={styles.myMusicContainer}>
                 <div style={styles.titleBar}>
@@ -62,11 +98,11 @@ class MyMusic extends React.Component{
                 </div>
                 {/* Status bar og audio if audio is not empty */}
                 <div style={styles.statusBar}>
-                    <p style={styles.currTime}>{audio !== null ? Math.floor(audio.currentTime) : '0 / 0'}</p>
+                    <p style={styles.currTime}>{audio !== null ? Math.floor(audio.currentTime/60) +':' +Math.floor(audio.currentTime)%60 : '0 / 0'}</p>
                     <div style={styles.seekBar}>
                         <div style={styles.fill} id='fill'></div>
                     </div>
-                    <p style={styles.dur}>{audio != null ? Math.floor(audio.duration) : '0 / 0'}</p>
+                    <p style={styles.dur}>{audio != null ? Math.floor(audio.duration/60) +':' + Math.floor(audio.duration)%60 : '0 / 0'}</p>
                 </div>
                 
             </div>

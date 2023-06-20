@@ -160,12 +160,23 @@ class Ipod extends React.Component{
         // pause play the music 
         if(this.state.activePage === 'MyMusic'){
             if(this.state.play === true){
-                this.state.audio.pause();
+                // pause the audio with active class
+                [...document.querySelectorAll('.audio-element')].forEach(function(item) {
+                    if(item.classList.contains('active') == true){
+                        item.pause();
+                    }
+                     });
                 this.setState({
                     play : false
                 })
             }else{
-                this.state.audio.play();
+
+                // play the audio with active class
+                [...document.querySelectorAll('.audio-element')].forEach(function(item) {
+                    if(item.classList.contains('active') == true){
+                        item.play();
+                    }
+                     });
                 this.setState({
                     play : true
                 })
@@ -175,7 +186,7 @@ class Ipod extends React.Component{
     }
 
     componentDidMount(){
-        let audio = document.getElementsByClassName("audio-element")[0];
+        let audio = document.getElementsByClassName("audio-element");
         console.log(audio)
         this.setState({
             audio : audio,
@@ -187,6 +198,12 @@ class Ipod extends React.Component{
         return(
             <div style = {styles.ipodContainer}>
 
+                    <audio className="audio-element">
+                        <source src={sound}></source>
+                    </audio>
+                    <audio className="audio-element">
+                        <source src={sound}></source>
+                    </audio>
                     <audio className="audio-element">
                         <source src={sound}></source>
                     </audio>
@@ -206,9 +223,9 @@ class Ipod extends React.Component{
                     <div style = {styles.buttonContainer}>
                         <div style = {{alignItems:'center',alignSelf:'center',width : '100%',display : 'flex',flexDirection : 'row',justifyContent : 'space-between'}}>
                             
-                            <img className='playerList' styles={styles.image}  draggable='false' width="30" height="30" src="https://img.icons8.com/material-sharp/24/skip-to-start.png" alt="skip-to-start"/>
+                            <img className='playerList' id='prevprev' styles={styles.image}  draggable='false' width="30" height="30" src="https://img.icons8.com/material-sharp/24/skip-to-start.png" alt="skip-to-start"/>
                             <div onClick={this.changePage} style={{backgroundImage: 'linear-gradient(50deg, #8c8181, transparent)' , width : '5rem' , height : '5rem' , borderRadius : '50%'}}></div>
-                            <img className='playerList' styles={styles.image} draggable='false' width="30" height="30" src="https://img.icons8.com/android/24/end.png" alt="skip-to-start"/>
+                            <img className='playerList' id='nextnext' styles={styles.image} draggable='false' width="30" height="30" src="https://img.icons8.com/android/24/end.png" alt="skip-to-start"/>
                             
                             
                         </div>

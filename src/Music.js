@@ -50,7 +50,7 @@ const styles = {
     },
     titleBar : {
         height:'10%',
-        width:'90%',
+        width:'100%',
         borderRadius:'10px 0 0 0',
         backgroundColor: '#FFAAC9',
         borderBottom: '1px solid #6c757d',
