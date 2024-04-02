@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0519c4ae.css",
+    "main.js": "/static/js/main.6658d90b.js",
+    "static/media/Thug Life.mp3": "/static/media/Thug Life.9297b6b7b479aa493c78.mp3",
+    "static/media/jasmineSandlas.png": "/static/media/jasmineSandlas.40b71dd4be013434c82d.png",
+    "index.html": "/index.html",
+    "main.0519c4ae.css.map": "/static/css/main.0519c4ae.css.map",
+    "main.6658d90b.js.map": "/static/js/main.6658d90b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0519c4ae.css",
+    "static/js/main.6658d90b.js"
+  ]
+}
