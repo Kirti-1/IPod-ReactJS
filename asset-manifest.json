@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/IPod-ReactJS/static/css/main.0519c4ae.css",
+    "main.js": "/IPod-ReactJS/static/js/main.e5d9c084.js",
+    "static/media/Thug Life.mp3": "/IPod-ReactJS/static/media/Thug Life.9297b6b7b479aa493c78.mp3",
+    "static/media/jasmineSandlas.png": "/IPod-ReactJS/static/media/jasmineSandlas.40b71dd4be013434c82d.png",
+    "index.html": "/IPod-ReactJS/index.html",
+    "main.0519c4ae.css.map": "/IPod-ReactJS/static/css/main.0519c4ae.css.map",
+    "main.e5d9c084.js.map": "/IPod-ReactJS/static/js/main.e5d9c084.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0519c4ae.css",
+    "static/js/main.e5d9c084.js"
+  ]
+}
